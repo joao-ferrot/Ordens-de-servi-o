@@ -1,75 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>POM</title>
-</head>
-<body>
-
+    <link rel="stylesheet" href="src/styles/style.css" />
+  </head>
+  <body>
     <header>
-    <div>
-        <img src="/frontend/image/icon.jpeg">
-        <span>Ordens de Manutenção</span>
-    </div>
-    <div class="new_os">
-        <button>+ Novah OS</button>
-    </div>
+      <div class="header">
+        <img src="src/assets/image/Image.png" />
+        <div class="text-header">
+          <h1>Serviços de Ordens</h1>
+          <span>Plataforma de Ordens de Manutenção</span>
+        </div>
+      </div>
+      <div class="new_os">
+        <img src="" alt="" /><img src="" alt="" />
+
+        <span>nome do usuario</span>
+        <span>posiçao /cargo</span>
+        <img src="" alt="" />
+      </div>
     </header>
 
     <!-- criaçao  da lista de manutençoes  -->
-    
+
     <main>
-        <section>
-           <span>Lista de OS</span>  
-           <br>
-           <p>Visualize e gerencie todas oas ordens de serviço de sistema</p>       
-        </section>
-        <br><br>
-<div class="procura">
-        <div >
-            <img src="/frontend/image/lupa.png" alt="">
-            <input type="text">
+      <section class="tarefas-total">
+        <div class="totalOs">
+          <div class="total">
+            <span>Total de Os</span>
+
+          </div>
+
+          <img src="/frontend/src/assets/image//icon_paper.png" alt="papel" />
         </div>
+
+
+      </section>
+      <br /><br />
+      <div class="procura">
+        <div>
+            <h2>Ordens de Serviço</h2>
+            <span>Gerencie todas as ordens de manutenço</span>
+            <br>
+          <img src="/frontend/src/assets/image/lupa.png" alt="" />
+          <input type="text"  placeholder="Buscar por maquina setor ou ID da OS"/>
+        </div>
+         <div>
+          <select>
+            <option value="">Todos</option>
+            <option value="">Aberto</option>
+            <option value="">Em Andamento</option>
+            <option value="">Concluido</option>
+          </select>
+        </div>
+      </div>
+
+      <section>
+        <!-- usa o display grid -->
+        <!-- fazer pelo js os elementos -->
 
         <div>
-            <select>
-                <option value="">Todos</option>
-                <option value="">Aberto</option>
-                <option value="">Em Andamento</option>
-                <option value="">Concluido</option>
-            </select>
+          <span>OS id</span>
+          <span>equipamentos</span>
+          <span>local</span>
+          <span>Data de começo</span>
+          <span>Status da OS</span>
+
+
+          <!-- as li vao ter as classes algumas classes similares ao span -->
+          <ul>
+            <li>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </li>
+          </ul>
         </div>
-    </div>
-
-
-<section>
-<!-- usa o display grid -->
- <!-- fazer pelo js os elementos -->
-
-
-
-<div>
-
-    <span>OS id</span>
-    <span>equipamentos</span>
-    <span>local</span>
-    <span>Data de começo</span>
-    <span>Status da OS</span>
-</div>
-
-
-
-
-</section>
-
-
-
-
+      </section>
     </main>
 
-    <footer>
-
-    </footer>
-</body>
+    <footer></footer>
+  </body>
 </html>

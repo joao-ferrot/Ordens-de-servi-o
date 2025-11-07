@@ -1,0 +1,31 @@
+
+.header {
+    display: flex;
+  /*   text-align: center; */
+    gap: 10px;
+    align-items: center;
+
+}
+
+.header img {
+    width: 31px;
+    height: 31px;
+    border: 2px solid red;
+}
+
+.text-header {
+    display: flex;
+    flex-direction: column;
+
+    
+}
+.text-header h1 {
+    font-size: 1.4rem;
+    color: #3B537E;
+
+}
+
+.text-header span {
+    color: #B1B1B4;
+    font-size: 0.6rem;
+}
