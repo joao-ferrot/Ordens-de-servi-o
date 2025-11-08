@@ -1,0 +1,19 @@
+.descricao{
+
+border: solid;
+display: flex;
+align-items: center;
+justify-content: space-between;
+height: 50px;
+border-top-left-radius: 8px;
+border-top-right-radius: 8px;
+
+margin-top: 5px;
+
+}
+.descricao>span{
+    font-size: 18px;
+    font-weight: 700;
+   
+
+}
