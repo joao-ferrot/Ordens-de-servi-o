@@ -11,9 +11,42 @@ border-top-right-radius: 8px;
 margin-top: 5px;
 
 }
-.descricao>span{
+.descricao_span{
     font-size: 18px;
     font-weight: 700;
+    gap: 20pxs;
    
 
 }
+.descriçao_os{
+    border: solid;
+display: flex;
+align-items: center;
+justify-content: space-between;
+height: 50px;
+border-top: none;
+
+
+
+}
+.estado_OS{
+    /* cores : azul , verde  e vermelho */
+    background:blue 12px;
+     border-radius: 8px;
+}
+.gravidade_alta{
+    background-color: red;
+    border-radius: 8px;
+}
+.gravidade_media{
+background-color: orange;
+    border-radius: 8px;
+}
+    
+
+
+.gravidade_baixa{
+    background-color: blue;
+    border-radius: 8px;
+}
+
