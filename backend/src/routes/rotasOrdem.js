@@ -1,9 +1,13 @@
-import OrdemControl from "../controller/OS_controller.js";
 import express from "express";
+import OrdemControl from "../controller/OS_controller.js";
+
 
 //criar outras rotas ainda 
 
 const OrdemRotas=express.Router();
-OrdemRotas.get('/Serviços', OrdemControl.CarregarOrdens)
+OrdemRotas.get('/Servicos', OrdemControl.CarregarOrdens)
 OrdemRotas.post('/NovaOrdem',OrdemControl.CriarOrdem)
 
+
+
+export default OrdemRotas

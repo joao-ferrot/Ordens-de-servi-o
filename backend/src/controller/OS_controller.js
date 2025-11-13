@@ -1,10 +1,10 @@
 import OrdemServico from "../models/model.js";
 // get , put , delete, post
-class OrdemControl{
+class OrdemControl {
 
     static async CarregarOrdens(req,res){
         try {
-            const id= req.query.id
+            const id=req.query.id
 
             const ordem= await OrdemServico.find(id)
 

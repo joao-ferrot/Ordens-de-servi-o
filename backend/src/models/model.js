@@ -14,6 +14,9 @@ const OSchema= new mongoose.Schema({
     },
     status:{
         type: String, required:true
+    },
+    data:{
+        type: String, required: true
     }
 }
 ,{versionKey:false});
