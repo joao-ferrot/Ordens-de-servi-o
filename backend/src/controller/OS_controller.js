@@ -21,11 +21,14 @@ class OrdemControl {
             const ordem=await OrdemServico.create(novaOrdem);
             res.status(200).json({
                 mensagem:"ordem criada"
-            })
+            });
+            console.log(req.body);
         } catch (error) {
             res.status(500).send({
-                mensagem:"nao foi possivel criar  a ordem "
+                mensagem:`nao foi possivel criar  a ordem : ${error}`
+              
             })
+            
         }
     }
 

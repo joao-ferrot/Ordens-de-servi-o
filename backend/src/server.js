@@ -10,6 +10,7 @@ import routes from "./routes/rotaP.js";
 const server=express();
 
 server.use(cors());
+server.use(express.json());
 routes(server);
 
 await conecta_db();
