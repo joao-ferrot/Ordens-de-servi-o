@@ -1,9 +1,11 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
+  "type":"module",
+  
   "scripts": {
-    "start": "node --import=tsx --watch src/serve.js"
+    "start": "node --import=tsx --watch src/server.js"
   },
   "keywords": [],
   "author": "",
