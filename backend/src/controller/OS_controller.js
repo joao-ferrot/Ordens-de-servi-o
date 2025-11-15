@@ -35,15 +35,89 @@ class OrdemControl {
     static async AtualizacaoOrdem(req,res){
 
         try{
-            const {id}=req.params
-            await OrdemServico.findByIdAndUpdate(id, req.body, {new: true});
-            res.status(201).json({mensagem:`erro ao atualizar Ordem de serviço`})
+            const id=req.params.id
+           const resposta=await OrdemServico.findByIdAndUpdate(id,{$set: req.body}, {new: true});
+           
+            console.log(req.body);
+            console.log(req.params.id);
+            console.log(resposta)
+            res.status(200).json({mensagem:`atualizaçao de ordem bem sucesidida`},{
+                atualizaçao:resposta
+            })
+
+
+            const  r=  await OrdemServico.collection.updateOne(
+                {
+                    _id:req.params.id
+                },
+                {
+                    $set:req.body
+                }
+            );
+            console.log(r)
+
+            return
+            
             
 
-        }catch{
-
-        }
+        }catch(error){
+            console.error(error)
+          res.status(500).send("nao foi possivel realizar  a atualizaçao da ordem devido ao erro ")
+       }
     }
+
+
+
+
+
+
+   /*  static async AtualizacaoOrdem(req, res) {
+        try {
+            const id = req.params.id;
+    
+            const resposta = await OrdemServico.findByIdAndUpdate(
+                id,
+                { $set: req.body },
+                { new: true }
+            );
+    
+            res.status(200).json({
+                mensagem: "Atualização realizada com sucesso",
+                atualizacao: resposta
+            });
+   
+            console.log(resposta)
+
+
+
+
+
+
+
+            return; // IMPRESCINDÍVEL
+    
+        } catch (error) {
+            console.error(error);
+            res.status(500).send("Não foi possível atualizar a ordem.");
+        }
+    } */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
  
@@ -56,6 +130,15 @@ class OrdemControl {
             res.status(500).send({
                 mensagem:`deu marda ao deletar a task ${error}`
             })
+        }
+    }
+
+
+    static async buscarOrdem(req, res){
+        try{
+
+        }catch(error){
+
         }
     }
  

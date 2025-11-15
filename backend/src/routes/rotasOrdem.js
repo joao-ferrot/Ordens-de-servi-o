@@ -7,7 +7,8 @@ import OrdemControl from "../controller/OS_controller.js";
 const OrdemRotas=express.Router();
 OrdemRotas.get('/Servicos', OrdemControl.CarregarOrdens)
 OrdemRotas.post('/NewOs',OrdemControl.CriarOrdem)
-OrdemRotas.put('/servico:id',OrdemControl.AtualizacaoOrdem)
+OrdemRotas.put('/UPservico/:id',OrdemControl.AtualizacaoOrdem);
+OrdemRotas.delete('/delOs/:id', OrdemControl.deletarOrdem);
 
 
 export default OrdemRotas
