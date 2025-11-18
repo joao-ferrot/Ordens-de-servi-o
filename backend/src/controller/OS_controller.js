@@ -1,4 +1,5 @@
 import OrdemServico from "../models/model.js";
+import mongoose from "mongoose";
 // get , put , delete, post
 class OrdemControl {
 
@@ -31,6 +32,47 @@ class OrdemControl {
             
         }
     }
+
+
+
+    static async buscarOrdem(req, res) {
+        try {
+          const { id } = req.params;
+    
+          if (!mongoose.Types.ObjectId.isValid(id)) {
+            return res.status(400).json({ erro: 'id inválido' });
+          }
+    
+          const ordem = await OrdemServico.findById(id);
+          if (!ordem) return res.status(404).json({ erro: "id da ordem não encontrado" });
+    
+          return res.status(200).json(ordem);
+        } catch (error) {
+          console.error('buscarOrdem:', error);
+          return res.status(500).json({ erro: 'falha ao buscar ordem', detalhe: error.message });
+        }
+      }
+
+
+
+
+
+
+/* static async buscarOrdem(req,res){
+    try {
+        const id=req.params.id
+        const ordem=await OrdemServico.findById(id);
+        if(!ordem)return res.status(404).json({erro:"id da ordem nao encontrado"});
+        
+         return res.status(200).json(ordem);
+
+      
+    } catch (error) {
+        res.status(500).json(` falha ao burcas Ordem:  ${error}`);
+        console.log(error)
+    }
+} */
+
 
     static async AtualizacaoOrdem(req,res){
 
