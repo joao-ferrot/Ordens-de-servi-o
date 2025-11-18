@@ -35,7 +35,7 @@ class OrdemControl {
 
 
 
-    static async buscarOrdem(req, res) {
+   /*  static async buscarOrdem(req, res) {
         try {
           const { id } = req.params;
     
@@ -51,54 +51,41 @@ class OrdemControl {
           console.error('buscarOrdem:', error);
           return res.status(500).json({ erro: 'falha ao buscar ordem', detalhe: error.message });
         }
-      }
+      } */
 
 
 
 
 
 
-/* static async buscarOrdem(req,res){
+static async buscarOrdem(req,res){
     try {
         const id=req.params.id
         const ordem=await OrdemServico.findById(id);
-        if(!ordem)return res.status(404).json({erro:"id da ordem nao encontrado"});
+        if(!ordem){return res.status(404).json({erro:"id da ordem nao encontrado"})}
         
          return res.status(200).json(ordem);
 
       
     } catch (error) {
-        res.status(500).json(` falha ao burcas Ordem:  ${error}`);
+        res.status(500).json(` falha ao buscas Ordem:  ${error}`);
         console.log(error)
     }
-} */
+}
 
 
     static async AtualizacaoOrdem(req,res){
 
         try{
-            const id=req.params.id
+        const id=req.params.id
            const resposta=await OrdemServico.findByIdAndUpdate(id,{$set: req.body}, {new: true});
            
             console.log(req.body);
             console.log(req.params.id);
             console.log(resposta)
-            res.status(200).json({mensagem:`atualizaçao de ordem bem sucesidida`},{
-                atualizaçao:resposta
-            })
+         
 
-
-            const  r=  await OrdemServico.collection.updateOne(
-                {
-                    _id:req.params.id
-                },
-                {
-                    $set:req.body
-                }
-            );
-            console.log(r)
-
-            return
+            return res.status(201).json({mensagem: "Atualização feita!", dados: resposta})
             
             
 
@@ -112,38 +99,21 @@ class OrdemControl {
 
 
 
+/* 
+    static async buscarOrdem(req,res){
+    try {
+        const {id}=req.params
+        const ordem=await OrdemServico.findById(id);
+        if(!ordem){return res.status(404).json({erro:"id da ordem nao encontrado"});
+    }
+        return res.status(200).json(ordem);
 
-   /*  static async AtualizacaoOrdem(req, res) {
-        try {
-            const id = req.params.id;
-    
-            const resposta = await OrdemServico.findByIdAndUpdate(
-                id,
-                { $set: req.body },
-                { new: true }
-            );
-    
-            res.status(200).json({
-                mensagem: "Atualização realizada com sucesso",
-                atualizacao: resposta
-            });
-   
-            console.log(resposta)
-
-
-
-
-
-
-
-            return; // IMPRESCINDÍVEL
-    
-        } catch (error) {
-            console.error(error);
-            res.status(500).send("Não foi possível atualizar a ordem.");
-        }
-    } */
-
+    } catch (error) {
+        console.log(error)
+        return res.status(500).json(`falha ao buscar Ordem: ${error}`);
+    }
+}
+ */
 
 
 
@@ -176,14 +146,7 @@ class OrdemControl {
     }
 
 
-    static async buscarOrdem(req, res){
-        try{
 
-        }catch(error){
-
-        }
-    }
- 
 }
 
 
