@@ -34,7 +34,7 @@ async atualizaOrdem(servico){
 
     async NovaOrdem(servico){
     try{
-        const response = await fetch( url,{
+        const response = await fetch(` ${url}/NewOs`,{
             method:"POST",
             headers:{
                 "Content-Type":"application/json"
@@ -55,7 +55,7 @@ async atualizaOrdem(servico){
 
  async deleteOrdem(id){
     try {
-        const response=await fetch(url,{
+        const response=await fetch(`${url}/delOs/:id`,{
             method:"DELETE"
         });
     return await response.json();
