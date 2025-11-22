@@ -1,0 +1,123 @@
+/* GRID DE EQUIPAMENTOS  */
+.equipamentos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+    animation: fadeIn 0.5s ease;
+}
+
+/*ESTILO DO CARD*/
+.equip-card {
+    background: #1E1E2E; 
+    border: 1px solid #2D2D44;
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.equip-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    border-color: #8030E0; 
+}
+
+/* Ícone Grande */
+.equip-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    background: #2B2B40;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+/* Texto */
+.equip-info h3 {
+    color: #E6D8FF;
+    margin: 0 0 5px 0;
+    font-size: 1.1rem;
+}
+
+.equip-setor {
+    color: #9CA3AF;
+    font-size: 0.85rem;
+    margin-bottom: 15px;
+    display: block;
+}
+
+/* Badge de Status */
+.equip-status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    background: rgba(255,255,255,0.05);
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+/* Cores dos Status */
+.status-ok .equip-status-badge { color: #4ADE80; background: rgba(74, 222, 128, 0.1); }
+.status-ok .dot { background: #4ADE80; box-shadow: 0 0 8px #4ADE80; }
+
+.status-erro .equip-status-badge { color: #F87171; background: rgba(248, 113, 113, 0.1); }
+.status-erro .dot { background: #F87171; box-shadow: 0 0 8px #F87171; }
+
+.status-atencao .equip-status-badge { color: #FACC15; background: rgba(250, 204, 21, 0.1); }
+.status-atencao .dot { background: #FACC15; box-shadow: 0 0 8px #FACC15; }
+
+/* Botão do Card */
+.btn-ver-equip {
+    margin-top: 15px;
+    background: transparent;
+    border: 1px solid #8030E0;
+    color: #E6D8FF;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    transition: 0.2s;
+}
+
+.btn-ver-equip:hover {
+    background: #8030E0;
+    color: white;
+}
+
+/* --- CARD DE ADICIONAR */
+.equip-card.add-new {
+    border: 2px dashed #4B5563;
+    background: transparent;
+    cursor: pointer;
+    justify-content: center;
+    color: #fff;
+}
+
+.equip-card.add-new:hover {
+    border-color: #8030E0;
+    background: rgba(128, 48, 224, 0.05);
+}
+
+.add-icon {
+    font-size: 2rem;
+    color: #8030E0;
+    margin-bottom: 10px;
+}
