@@ -223,6 +223,7 @@ function atualizarOS() {
   finalizarAcaoOS();
 }
 
+// Função para finalizar a ação de criação/edição de OS
 function finalizarAcaoOS() {
   desenharTabela(listaOS);
   atualizarContadores();
