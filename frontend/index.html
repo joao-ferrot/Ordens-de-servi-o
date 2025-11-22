@@ -1,28 +1,224 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>POM</title>
-    <link rel="stylesheet" href="src/styles/style.css" />
-  </head>
-  <body>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ordens de Serviços</title>
+  <link rel="stylesheet" href="src/styles/style.css" />
+  <link rel="stylesheet" href="src/styles/equipamentos.css" />
+  <script src="src/JS/ui.js" defer></script>
+</head>
+
+<body>
+  <main>
     <header>
       <div class="header">
-        <img src="src/assets/image/Image.png" />
-        <div class="text-header">
-          <h1>Serviços de Ordens</h1>
-          <span>Plataforma de Ordens de Manutenção</span>
+        <div class="header-left">
+          <img src="src/assets/image/icon-novo.png" />
+          <div class="text-header">
+            <h1>Serviços de Ordens</h1>
+            <span>Plataforma de Ordens de Manutenção</span>
+          </div>
         </div>
-      </div>
-      <div class="new_os">
-        <img src="" alt="" /><img src="" alt="" />
 
-        <span>nome do usuario</span>
-        <span>posiçao /cargo</span>
-        <img src="" alt="" />
+        <div class="icons-header">
+          <span>🔔︎</span>
+          <span>⚙</span>
+
+          <div class="grupo-user">
+            <div class="text-group-user">
+              <h1>User</h1>
+              <span>Manutec. Industrial </span>
+            </div>
+          </div>
+        </div>
       </div>
     </header>
 
-  </body>
+    <section>
+      <div class="sub-header">
+        <div class="box-sub-header"> <span>☰</span>
+          <h1>Dashboard</h1>
+        </div>
+        <div class="box-sub-header-2"> <span>🔧</span>
+          <h1>Equipamentos</h1>
+        </div>
+      </div>
+    </section>
+
+    <div id="view-dashboard">
+
+      <section>
+        <div class="total-os">
+          <div class="box-total-os">
+            <div class="text-box-total-os">
+              <h1>Total de OS</h1>
+              <span class="num-total-os">8</span>
+            </div>
+            <div class="img-total-os"><span>📰</span></div>
+          </div>
+
+          <div class="box-aberta-os">
+            <div class="text-box-total-os">
+              <h1>Abertas</h1>
+              <span>3</span>
+            </div>
+            <div class="img-total-os"><span>🔴</span></div>
+          </div>
+
+          <div class="box-andamento-os">
+            <div class="text-box-total-os">
+              <h1>Andamento</h1>
+              <span>3</span>
+            </div>
+            <div class="img-total-os"><span>⏳</span></div>
+          </div>
+
+          <div class="box-concluida-os">
+            <div class="text-box-total-os">
+              <h1>Concluída</h1>
+              <span>3</span>
+            </div>
+            <div class="img-total-os"><span>✔️</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="ordens-servico">
+        <header class="os-header">
+          <h1>Ordens de Serviços</h1>
+          <span>Gerencie todas as Ordens de Manutenção</span>
+
+          <div class="os-search">
+            <div class="search-box">
+              <input type="text" class="input-search" placeholder="Buscar por máquina, setor ou ID...">
+            </div>
+            <button class="btn-nova-os" id="btn-abrir-card" type="button">➕Nova OS</button>
+          </div>
+        </header>
+
+        <div class="os-table">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Máquina</th>
+                <th>Setor</th>
+                <th>Prioridade</th>
+                <th>Status</th>
+                <th>Data de Abertura</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody id="tabelaServicosBody">
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+    <!-- === ABA EQUIPAMENTOS -->
+    <section id="view-equipamentos" style="display: none;">
+      <div class="equipamentos-container">
+
+        <div class="equip-card status-ok">
+          <div class="equip-icon">⚙️</div>
+          <div class="equip-info">
+            <h3>Torno CNC-01</h3>
+            <span class="equip-setor">Setor: Usinagem</span>
+            <div class="equip-status-badge"><span class="dot"></span> Operando</div>
+          </div>
+          <button class="btn-ver-equip">Ver Histórico</button>
+        </div>
+
+        <div class="equip-card status-erro">
+          <div class="equip-icon">🚨</div>
+          <div class="equip-info">
+            <h3>Moedor de Carne</h3>
+            <span class="equip-setor">Setor: Trituração</span>
+            <div class="equip-status-badge"><span class="dot"></span> Parado</div>
+          </div>
+          <button class="btn-ver-equip">Ver Histórico</button>
+        </div>
+
+        <div class="equip-card status-atencao">
+          <div class="equip-icon">🛠️</div>
+          <div class="equip-info">
+            <h3>Fresadora F-200</h3>
+            <span class="equip-setor">Setor: Acabamento</span>
+            <div class="equip-status-badge"><span class="dot"></span> Manutenção</div>
+          </div>
+          <button class="btn-ver-equip">Ver Histórico</button>
+        </div>
+
+        <div class="equip-card add-new">
+          <div class="add-icon">+</div>
+          <h3>Adicionar Máquina</h3>
+        </div>
+
+      </div>
+    </section>
+    <!-- === FIM ABA EQUIPAMENTOS -->
+    <!-- ===CARD CRIAR OS -->
+    <div class="os-overlay" id="overlay-card"></div>
+
+    <form class="create-os-card" id="create-os-card" autocomplete="off">
+      <button class="btn-fechar-card" id="btn-fechar-card" type="button">✖</button>
+      <h2>Criar Ordem de Serviço</h2>
+
+      <label>Máquina</label>
+      <input type="text" name="maquina" placeholder="Digite o nome da máquina">
+
+      <label>Setor</label>
+      <input type="text" name="setor" placeholder="Digite o setor">
+
+      <label>Prioridade</label>
+      <select name="prioridade">
+        <option>Alta</option>
+        <option>Média</option>
+        <option>Baixa</option>
+      </select>
+
+      <label style="display: none;">Status</label>
+      <select name="status" style="display: none;">
+        <option value="Aberto">Aberto</option>
+        <option value="Em Andamento">Em andamento</option>
+        <option value="Concluída">Concluída</option>
+      </select>
+
+      <label>Descrição</label>
+      <textarea name="descricao" placeholder="Descreva o problema"></textarea>
+
+      <button class="criar-os-btn" type="submit">Criar OS</button>
+    </form>
+    <!-- === FIM CARD CRIAR OS -->
+
+    <!-- ===CARD CRIAR EQUIPA -->
+    <div class="os-overlay" id="overlay-equip"></div>
+
+    <form class="create-os-card" id="form-equip" autocomplete="off">
+      <button class="btn-fechar-card" id="btn-fechar-equip" type="button">✖</button>
+
+      <h2>Nova Máquina</h2>
+
+      <label>Nome da Máquina</label>
+      <input type="text" name="nomeEquip" placeholder="Ex: Torno CNC-01" required>
+
+      <label>Setor</label>
+      <input type="text" name="setorEquip" placeholder="Ex: Usinagem" required>
+
+      <button class="criar-os-btn" type="submit">Salvar Máquina</button>
+    </form>
+    <!-- ===FIM CARD CRIAR EQUIPA -->
+
+  </main>
+
+  <footer>
+    <div class="footer">
+      <span>© 2025 Manutec Industrial — Transformando manutenção em performance.</span>
+    </div>
+  </footer>
+
+</body>
+
 </html>
