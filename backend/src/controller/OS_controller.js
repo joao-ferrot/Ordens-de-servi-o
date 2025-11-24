@@ -6,9 +6,7 @@ class OrdemControl {
 
     static async CarregarOrdens(req,res){
         try {
-            const id=req.query.id
-
-            const ordem= await OrdemServico.find(id)
+            const ordem= await OrdemServico.find()
 
             res.status(200).json(ordem)
         } catch (error) {
