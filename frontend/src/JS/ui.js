@@ -1,4 +1,4 @@
-import api from "./api.js";
+/* import api from "./api.js";
 
 const ui={
 async renderiza(){
@@ -12,12 +12,12 @@ async renderiza(){
     
   }
 },
-
+ */
 
 
 //(BANCO DE DADOS SIMULADO)
 
-/* let listaOS = [];
+let listaOS = [];
 
 // Lista inicial de equipamentos
 let listaEquipamentos = [
@@ -25,22 +25,22 @@ let listaEquipamentos = [
   { id:2, nome: "Moedor de Gente", setor: "Trituração" },
   { id:3, nome: "Fresadora F-200", setor: "Acabamento" },
 ];
- */
+
 // SELETORES GERAIS
 
 
-Visualizaçao(){
+/* Visualizaçao(){
 
 
 
 
  function Dados(){
-  const dados= api.Obtercaixas();
+  const dados= api.btercaixas();
 
 
 
 }
-
+ */
 
 
 
@@ -227,11 +227,11 @@ formOS.addEventListener("submit", (event) => {
   else criarOS();
 });
 
-/* function gerarID() {
+function gerarID() {
   return "#" + (2025000 + listaOS.length + 1);
 }
- */
-/* function criarOS() {
+
+function criarOS() {
   const os = {
     id: gerarID(),
     maquina: formOS.maquina.value,
@@ -245,7 +245,7 @@ formOS.addEventListener("submit", (event) => {
   listaOS.push(os);
   finalizarAcaoOS();
 }
- */
+
 function criaOS(){
   const newOs=api.NovaOrdem();
 
@@ -254,7 +254,7 @@ function criaOS(){
 
 
 
-/* 
+
 function atualizarOS() {
   osEditando.maquina = formOS.maquina.value;
   osEditando.setor = formOS.setor.value;
@@ -263,7 +263,7 @@ function atualizarOS() {
   osEditando.status = formOS.status.value;
 
   finalizarAcaoOS();
-} */
+}
 
 
   function atualizarOS(){
@@ -401,7 +401,6 @@ desenharEquipamentos();
 
 
 
-}
 
 
 
@@ -409,7 +408,8 @@ desenharEquipamentos();
 
 
 
-}
+
+
 
 
 //(BANCO DE DADOS SIMULADO)
