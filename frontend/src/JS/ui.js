@@ -1,15 +1,48 @@
+import api from "./api.js";
+
+const ui={
+async renderiza(){
+  try {
+    const lista= await api.ObterOrdens()
+    const caixa=await api.Obtercaixas();
+    caixa.forEach(ui.Visualizaçao);
+    lista.forEach(ui.Visualizaçao);
+    
+  } catch (error) {
+    
+  }
+},
+
+
+
 //(BANCO DE DADOS SIMULADO)
 
-let listaOS = [];
+/* let listaOS = [];
 
 // Lista inicial de equipamentos
 let listaEquipamentos = [
-  { id: 1, nome: "Torno CNC-01", setor: "Usinagem" },
-  { id: 2, nome: "Moedor de Gente", setor: "Trituração" },
-  { id: 3, nome: "Fresadora F-200", setor: "Acabamento" },
+  { id:1, nome: "Torno CNC-01", setor: "Usinagem" },
+  { id:2, nome: "Moedor de Gente", setor: "Trituração" },
+  { id:3, nome: "Fresadora F-200", setor: "Acabamento" },
 ];
-
+ */
 // SELETORES GERAIS
+
+
+Visualizaçao(){
+
+
+
+
+ function Dados(){
+  const dados= api.Obtercaixas();
+
+
+
+}
+
+
+
 
 // Abas
 const btnTabDashboard = document.querySelector(".box-sub-header");
@@ -194,11 +227,11 @@ formOS.addEventListener("submit", (event) => {
   else criarOS();
 });
 
-function gerarID() {
+/* function gerarID() {
   return "#" + (2025000 + listaOS.length + 1);
 }
-
-function criarOS() {
+ */
+/* function criarOS() {
   const os = {
     id: gerarID(),
     maquina: formOS.maquina.value,
@@ -212,7 +245,16 @@ function criarOS() {
   listaOS.push(os);
   finalizarAcaoOS();
 }
+ */
+function criaOS(){
+  const newOs=api.NovaOrdem();
 
+  
+}
+
+
+
+/* 
 function atualizarOS() {
   osEditando.maquina = formOS.maquina.value;
   osEditando.setor = formOS.setor.value;
@@ -221,7 +263,18 @@ function atualizarOS() {
   osEditando.status = formOS.status.value;
 
   finalizarAcaoOS();
-}
+} */
+
+
+  function atualizarOS(){
+    const atualizaOS=api.atualizaOrdem
+    atualizaOS= maquina.value;
+     atualizaOS= setor.value;
+      atualizaOS= Prioridade.value;
+      atualizaOS= status.value;
+     atualizaOS= Data.value;   
+     atualizaOS= Detalhes.value;  
+  }
 
 // Função para finalizar a ação de criação/edição de OS
 function finalizarAcaoOS() {
@@ -345,3 +398,30 @@ document.querySelector(".input-search").addEventListener("input", (e) => {
 desenharTabela(listaOS);
 atualizarContadores();
 desenharEquipamentos();
+
+
+
+}
+
+
+
+
+
+
+
+}
+
+
+//(BANCO DE DADOS SIMULADO)
+
+/* let listaOS = [];
+
+// Lista inicial de equipamentos
+let listaEquipamentos = [
+  { id:1, nome: "Torno CNC-01", setor: "Usinagem" },
+  { id:2, nome: "Moedor de Gente", setor: "Trituração" },
+  { id:3, nome: "Fresadora F-200", setor: "Acabamento" },
+];
+ */
+// SELETORES GERAIS
+

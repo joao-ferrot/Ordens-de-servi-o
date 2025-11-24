@@ -10,7 +10,6 @@ const OSchema= new mongoose.Schema({
     Data:{  type: String, required: true },
     Detalhes:{type:String, required: true}
 },{versionKey:false});
-const OrdemServico = mongoose.model("servico",OSchema);
+const OrdemServico = mongoose.model("servicos",OSchema);
 
-export default OrdemServico
-
+export default OrdemServico;

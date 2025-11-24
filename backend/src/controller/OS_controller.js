@@ -1,5 +1,6 @@
-import OrdemServico from "../models/model.js";
-import mongoose from "mongoose";
+import OrdemServico from "../models/modelOS.js";
+import caixas from "../models/modelCartao.js";
+
 // get , put , delete, post
 class OrdemControl {
 
@@ -32,6 +33,49 @@ class OrdemControl {
             
         }
     }
+//card
+static async CriarCaixa(req,res){
+        try {
+            const novaCaixa =req.body
+            const caixa=await caixas.create(novaCaixa);
+            res.status(200).json({
+                mensagem:"cadastro de maquina feito com sucesso"
+            });
+            console.log(req.body);
+        } catch (error) {
+            res.status(500).send({
+                mensagem:`nao foi possivel adiciona nova maquina: ${error}`
+              
+            })
+            
+        }
+    }
+
+ static async CarregarCaixa(req,res){
+        try {
+            const maquina=req.query.maquina
+
+            const caixa= await caixas.find(maquina);
+
+            res.status(200).json(caixa);
+        } catch (error) {
+            res.status(500).json({mensagem:"erro ao exibir os cartoes de maquinas"});
+
+        }
+    }
+
+
+
+
+//fim do card
+
+
+
+
+
+
+
+
 
 
 

@@ -4,6 +4,44 @@ const url="http://localhost:8000";
 
 const api={
 
+    
+async Obtercaixas(){
+
+        try{
+            const response=await fetch(`${url}/Servicos`);
+            return await response.json();
+        }catch(error){
+            alert("erro no carregamento das maquinas");
+            console.log(error);
+
+        }
+    },
+
+async Novacaixa(servico){
+    try{
+        const response = await fetch(` ${url}/NewCard`,{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify(servico)
+        });
+        return await response.json();
+
+
+
+    }catch(error){
+        alert("problema ao cadastra uma nova maquina", error);
+    }
+
+
+   
+},
+
+
+
+
+
     async ObterOrdens(){
 
         try{
@@ -34,7 +72,7 @@ async atualizaOrdem(servico){
 
     async NovaOrdem(servico){
     try{
-        const response = await fetch(` ${url}/NewOs`,{
+        const response = await fetch(` ${url}/NewCard`,{
             method:"POST",
             headers:{
                 "Content-Type":"application/json"
