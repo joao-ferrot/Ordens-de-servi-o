@@ -10,5 +10,8 @@ OrdemRotas.post('/NewOs',OrdemControl.CriarOrdem)
 OrdemRotas.put('/UPservico/:id',OrdemControl.AtualizacaoOrdem);
 OrdemRotas.delete('/delOs/:id', OrdemControl.deletarOrdem);
 OrdemRotas.get('/Servicos/:id',OrdemControl.buscarOrdem);
+OrdemRotas.get('/Servicos', OrdemControl.CarregarCaixa);
+OrdemRotas.post('/NewCard',OrdemControl.CriarCaixa);
+
 
 export default OrdemRotas

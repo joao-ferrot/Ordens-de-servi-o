@@ -1,0 +1,334 @@
+/* -------------------------------------------------- */
+/* LISTAGEM DE ORDENS DE SERVIÇO */
+/* -------------------------------------------------- */
+
+.ordens-servico {
+    margin-top: 20px;
+}
+
+.os-header {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.os-header h1 {
+    font-size: 1.3rem;
+    color: #E6D8FF;
+    font-weight: bold;
+}
+
+.os-header span {
+    font-size: 0.9em;
+    color: #E6D8FF;
+}
+
+.os-search {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    padding: 0 !important;
+    border: none;
+}
+
+.search-box input {
+    padding: 10px;
+    width: 100%;
+    background-color: #E8E0F4;
+    border: 1px solid #D5C7EF;
+    flex: 1;
+    border-radius: 6px 0 0 6px;
+    border-right: none;
+    outline: none;
+    color: #464349;
+}
+
+.btn-search {
+    cursor: pointer;
+    border: none;
+    box-shadow: none !important;
+    margin: 0 !important;
+    margin-right: -1px !important;
+    border-radius: 0 !important;
+    background: none;
+}
+
+.btn-search:hover {
+    transform: scale(1.05);
+}
+
+.os-search input:focus {
+    outline: none;
+}
+
+.os-search input::placeholder {
+    font-size: 0.8rem;
+    color: #7A777D;
+}
+
+.os-search button {
+    border-radius: 7px;
+    border: none;
+    padding: 10px 10px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.btn-nova-os {
+    background-color: #8030E0;
+    color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-nova-os:hover {
+    background-color: #6823B7;
+    transform: scale(1.03);
+}
+
+.os-search .btn-filtros-os {
+    background: transparent;
+    color: #B387FF;
+    border: 1px solid #B387FF;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-weight: 600;
+}
+
+.os-search .btn-filtros-os:hover {
+    background-color: rgba(179, 135, 255, 0.1);
+    transform: scale(1.03);
+}
+
+.os-table table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    font-size: 14px;
+}
+
+.os-table thead th {
+    background: #E6D8FF;
+    padding: 14px 16px;
+    text-align: left;
+    font-weight: 600;
+    color: #44157A;
+    border-bottom: 2px solid #CBB3F2;
+}
+
+.os-table tbody tr {
+    background: #E3D9F3;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.06);
+    border-radius: 8px;
+}
+
+.os-table tbody td {
+    padding: 14px 16px;
+    color: #464349;
+}
+
+.os-table tbody tr td:first-child {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.os-table tbody tr td:last-child {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.os-table tbody tr:hover {
+    background: #E1D8F2;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.status-aberto {
+    color: #D82929 !important;
+    font-weight: 600;
+}
+
+.status-andamento {
+    color: #C27B0A !important;
+    font-weight: 600;
+}
+
+.status-concluida {
+    color: #2E7D32 !important;
+    font-weight: 600;
+}
+
+.prioridade-alta {
+    color: #D82929;
+    font-weight: 600;
+}
+
+.prioridade-media {
+    color: #C27B0A;
+    font-weight: 600;
+}
+
+.os-table tbody td:last-child {
+    color: #2F80ED;
+    font-weight: 600;
+    /* cursor: pointer; */
+    background: none;
+    border: none;
+}
+
+.os-table tbody td:last-child:hover {
+    text-decoration: none;
+}
+
+/* -------------------------------------------------- */
+/* REMOÇÃO COMPLETA DO ESTILO ANTIGO DE DETALHES      */
+/* -------------------------------------------------- */
+
+.linha-detalhes {
+    background: transparent !important;
+}
+
+.celula-detalhes {
+    padding: 0 !important;
+}
+
+.box-detalhes {
+    display: none !important;
+}
+
+/* -------------------------------------------------- */
+/* MODELO A — CARD DE DETALHES MODERNO                */
+/* -------------------------------------------------- */
+
+.detalhes-card {
+    background: #F4EEFF;
+    padding: 22px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    animation: fadeIn 0.25s ease-in-out;
+    margin-top: 5px;
+}
+
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.detalhes-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #d2c5ef;
+    padding-bottom: 8px;
+}
+
+.detalhes-header h3 {
+    margin: 0;
+    color: #4A2D7F;
+}
+
+.detalhes-header span {
+    font-weight: bold;
+    color: #6d5a9c;
+}
+
+.detalhes-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-bottom: 20px;
+}
+
+.detalhes-grid h4 {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #5A477A;
+}
+
+.detalhes-grid p {
+    margin: 3px 0 0;
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
+.detalhes-descricao h4 {
+    color: #5A477A;
+    margin-bottom: 5px;
+}
+
+.detalhes-descricao p {
+    background: #E8E0F7;
+    padding: 12px;
+    border-radius: 8px;
+    text-decoration: none;
+
+}
+
+.detalhes-acoes {
+    margin-top: 20px;
+    display: flex;
+    gap: 12px;
+}
+
+.detalhes-acoes button {
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.detalhes-acoes button:hover {
+    transform: scale(1.02);
+    font-weight: 600;
+}
+
+.btn-editar {
+    background: #3B82F6;
+    color: #fff;
+}
+
+.btn-deletar {
+    background: #DC2626;
+    color: white;
+}
+
+btn-ver,
+.btn-ver:focus,
+.btn-ver:focus-visible,
+.btn-ver:active {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* correção para Firefox (remove espaço interno do foco) */
+.btn-ver::-moz-focus-inner {
+  border: 0;
+}
+
+/* tira highlight em mobile/touch */
+.btn-ver {
+  -webkit-tap-highlight-color: transparent;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 10px;
+  background-color: #7C6BD6;
+  color: #fff;
+}
+
+.btn-ver:hover {
+    transform: scale(1.02);
+    background-color: #7262c2;
+}
+/* caso algo ainda esteja gerando sombra no elemento focado */
+.btn-ver:focus { outline-offset: 0 !important; }
+
+
