@@ -1,2 +1,4 @@
-import ui from "./ui.js";
-import api from "./api.js";
+import { init } from "./ui.js";
+document.addEventListener("DOMContentLoaded", () => {
+    init();
+});
