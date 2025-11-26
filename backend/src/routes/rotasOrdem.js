@@ -13,5 +13,5 @@ OrdemRotas.delete('/ordens/:id', OrdemControl.deletarOrdem); // Deletar
 // ROTAS DE EQUIPAMENTOS (CAIXAS)
 OrdemRotas.get('/equipamentos', OrdemControl.CarregarCaixa); // Listar todas
 OrdemRotas.post('/equipamentos', OrdemControl.CriarCaixa);   // Criar (Antigo /NewCard)
-
+OrdemRotas.delete('/equipamentos/:id',OrdemControl.deleteCaixa);
 export default OrdemRotas;

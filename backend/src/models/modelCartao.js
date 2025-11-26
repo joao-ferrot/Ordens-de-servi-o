@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const box= new mongoose.Schema({
-   maquina:{
+   nome:{
     type:String,required:true
    },
    setor:{

@@ -27,6 +27,23 @@ const api = {
         }
     },
 
+
+    async deleteCaixas(){
+        try {
+            const response = await fetch(`${url}/equipamentos/${id}`, {
+                method: "DELETE"
+            });
+            return await response.json();
+        } catch (error) {
+            alert("Erro ao excluir a maquina");
+            console.error(error);
+        }
+    },
+
+
+
+
+
     // --- ORDENS DE SERVIÇO ---
     async ObterOrdens() {
         try {

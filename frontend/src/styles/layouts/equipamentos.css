@@ -121,3 +121,37 @@
     color: #8030E0;
     margin-bottom: 10px;
 }
+/* container das ações */
+.equip-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
+  }
+  
+  /* botão excluir neon */
+  .btn-delete-neon {
+    margin-top: 10px;
+    background-color: transparent;
+    border: 1px solid #b800ff;
+    color: #ffffff;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.25s ease;
+    text-shadow: 0 0 6px #b800ff;
+    box-shadow: 0 0 8px #5a00b8;
+  }
+  
+  .btn-delete-neon:hover {
+    background: linear-gradient(135deg, #4b007d, #7a00c9);
+    border-color: #d600ff;
+    transform: scale(1.05);
+  }
+  
+  .btn-delete-neon:active {
+    transform: scale(0.95);
+    box-shadow: 0 0 12px #b800ff;
+  }
+  

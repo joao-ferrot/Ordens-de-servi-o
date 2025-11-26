@@ -128,6 +128,7 @@ function desenharEquipamentos() {
                 <div class="equip-status-badge">${statusTexto}</div>
             </div>
             <button class="btn-ver-equip" onclick="window.filtrarHistorico('${equip.nome}')">Ver Histórico</button>
+            <button class="btn-delete-neon">Deletar</button> 
         `;
         container.appendChild(card);
     });

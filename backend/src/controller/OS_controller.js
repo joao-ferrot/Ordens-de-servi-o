@@ -58,15 +58,18 @@ class OrdemControl {
 
     // --- MAQUINARIO (CAIXAS) ---
 
-    static async CriarCaixa(req, res) {
-        try {
-            const novaCaixa = req.body;
-            const caixa = await caixas.create(novaCaixa);
-            res.status(200).json({ mensagem: "cadastro de maquina feito com sucesso" });
-        } catch (error) {
-            res.status(500).send({ mensagem: `nao foi possivel adiciona nova maquina: ${error}` });
-        }
+   static async CriarCaixa(req, res) {
+    try {
+        console.log("📦 Dados recebidos NO BACKEND:", req.body);
+
+        const caixa = await caixas.create(req.body);
+        res.status(200).json({ mensagem: "cadastro de maquina feito com sucesso" });
+
+    } catch (error) {
+        console.log("❌ ERRO AO CRIAR MAQUINA:", error);
+        res.status(500).send({ mensagem: `Erro ao adicionar maquina: ${error}` });
     }
+}
 
     static async CarregarCaixa(req, res) {
         try {
@@ -77,6 +80,24 @@ class OrdemControl {
             res.status(500).json({ mensagem: "erro ao exibir maquinas" });
         }
     }
+
+
+ static async deleteCaixa(req,res){
+
+        try {
+            const id=req.params.id
+            const caixa =await caixas.findByIdAndDelete(id) 
+            res.status(200).json({
+                mensagem:"maquina deletada com sucesso:  ",
+                caixa
+            })
+        } catch (error) {
+            res.status(500).send("erro ao deletar a maquina");
+        }
+    }
+
+
+
 }
 
 export default OrdemControl;
