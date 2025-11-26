@@ -1,0 +1,96 @@
+.total-os {
+    display: flex;
+    margin-top: 10px;
+    gap: 15px
+}
+
+.box-total-os {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    padding: 5px 0px;
+    gap: 60px;
+    background-color: #202020;
+    /* azul suave */
+    color: #FFFFFF;
+    border-radius: 5px;
+    border: 1px solid #303030;
+}
+
+.text-box-total-os {
+    display: flex;
+
+}
+
+.box-total-os h1 {
+    font-size: 0.9rem;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+.box-aberta-os {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    padding: 5px 0px;
+    gap: 60px;
+    background-color: #202020;
+    color: #FFFFFF;
+    border-radius: 5px;
+    border: 1px solid #303030;
+}
+
+.box-aberta-os h1 {
+    font-size: 0.9rem;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+.box-andamento-os {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    padding: 5px 0px;
+    gap: 60px;
+    background-color: #202020;
+    color: #FFFFFF;
+    border-radius: 5px;
+    border: 1px solid #303030;
+}
+
+.box-andamento-os h1 {
+    font-size: 0.9rem;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+.box-concluida-os {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    padding: 5px 0px;
+    gap: 60px;
+    background-color: #202020;
+    color: #FFFFFF;
+    border-radius: 5px;
+    border: 1px solid #303030;
+}
+
+.box-concluida-os h1 {
+    font-size: 0.9rem;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+.text-box-total-os {
+    flex-direction: column;
+}
+.text-box-total-os span {
+    font-family: "Noto Emoji", sans-serif !important;
+    text-align: left ;
+    color: #8030E0;
+}
