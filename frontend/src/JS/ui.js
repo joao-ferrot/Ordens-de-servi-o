@@ -132,6 +132,8 @@ function desenharEquipamentos() {
         container.appendChild(card);
     });
 
+    //oi
+
     const btnAdd = document.createElement("div");
     btnAdd.className = "equip-card add-new";
     btnAdd.innerHTML = `<div class="add-icon">+</div><h3>Adicionar Máquina</h3>`;
