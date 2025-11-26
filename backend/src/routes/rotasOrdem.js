@@ -1,14 +1,17 @@
 import express from "express";
 import OrdemControl from "../controller/OS_controller.js";
 
+const OrdemRotas = express.Router();
 
-//criar outras rotas ainda 
+// ROTAS DE ORDENS DE SERVIÇO (OS)
+OrdemRotas.get('/ordens', OrdemControl.CarregarOrdens);      // Listar todas
+OrdemRotas.get('/ordens/:id', OrdemControl.buscarOrdem);     // Buscar uma
+OrdemRotas.post('/ordens', OrdemControl.CriarOrdem);         // Criar (Antigo /NewOs)
+OrdemRotas.put('/ordens/:id', OrdemControl.AtualizacaoOrdem);// Atualizar
+OrdemRotas.delete('/ordens/:id', OrdemControl.deletarOrdem); // Deletar
 
-const OrdemRotas=express.Router();
-OrdemRotas.get('/Servicos', OrdemControl.CarregarOrdens)
-OrdemRotas.post('/NewOs',OrdemControl.CriarOrdem)
-OrdemRotas.put('/UPservico/:id',OrdemControl.AtualizacaoOrdem);
-OrdemRotas.delete('/delOs/:id', OrdemControl.deletarOrdem);
-OrdemRotas.get('/Servicos/:id',OrdemControl.buscarOrdem);
+// ROTAS DE EQUIPAMENTOS (CAIXAS)
+OrdemRotas.get('/equipamentos', OrdemControl.CarregarCaixa); // Listar todas
+OrdemRotas.post('/equipamentos', OrdemControl.CriarCaixa);   // Criar (Antigo /NewCard)
 
-export default OrdemRotas
+export default OrdemRotas;
