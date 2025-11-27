@@ -27,22 +27,26 @@ const api = {
         }
     },
 
-
-    async deleteCaixas(){
+    // CORREÇÃO AQUI: Removida a palavra 'function' e trocado BASE_URL por url
+    async DeletarCaixa(id) {
         try {
-            const response = await fetch(`${url}/equipamentos/${id}`, {
-                method: "DELETE"
+            const response = await fetch(`${url}/equipamentos/${id}`, { 
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json"
+                }
             });
+
+            if (!response.ok) {
+                throw new Error("Erro ao deletar equipamento na API");
+            }
+            
             return await response.json();
         } catch (error) {
-            alert("Erro ao excluir a maquina");
-            console.error(error);
+            console.error("Erro ao deletar:", error);
+            throw error; // Lança o erro para o front tratar
         }
     },
-
-
-
-
 
     // --- ORDENS DE SERVIÇO ---
     async ObterOrdens() {

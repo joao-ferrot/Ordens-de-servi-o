@@ -94,3 +94,42 @@
     text-align: left ;
     color: #8030E0;
 }
+
+/* =======================================================
+   RESPONSIVIDADE (ADICIONE ISSO AO FINAL DO ARQUIVO)
+   ======================================================= */
+
+@media (max-width: 1024px) {
+    /* Permite que os cards desçam para a próxima linha */
+    .total-os {
+        flex-wrap: wrap; 
+    }
+
+    /* Ajusta TODOS os cards para ocuparem metade da tela (2 por linha) */
+    .box-total-os, 
+    .box-aberta-os, 
+    .box-andamento-os, 
+    .box-concluida-os {
+        /* flex-grow: 1 (cresce), flex-shrink: 1 (encolhe), flex-basis: 45% (tamanho base) */
+        flex: 1 1 45%; 
+        
+        /* IMPORTANTE: Reduz aquele gap de 60px que quebrava o mobile */
+        gap: 15px; 
+        
+        /* Garante que o texto fique na esquerda e o ícone na direita */
+        justify-content: space-between; 
+        
+        /* Garante que não estoure a tela */
+        box-sizing: border-box; 
+    }
+}
+
+@media (max-width: 600px) {
+    /* Em celulares pequenos, coloca UM card por linha (100% de largura) */
+    .box-total-os, 
+    .box-aberta-os, 
+    .box-andamento-os, 
+    .box-concluida-os {
+        flex: 1 1 100%; 
+    }
+}

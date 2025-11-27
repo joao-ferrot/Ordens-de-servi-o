@@ -1,21 +1,28 @@
+/* =========================================
+   ESTILO PADRÃO (DESKTOP / PC)
+   ========================================= */
+
 .header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #121214; /* Garante fundo preto */
+    position: relative;
+    z-index: 100; /* Header base */
 }
-
 
 .header-left {
     display: flex;
-    /*   text-align: center; */
-    gap: 0px;
     align-items: center;
-
+    gap: 15px;
 }
 
+/* Tamanho do Logo no Desktop */
 .header-left img {
     width: 55px;
-    height: 42px;
-
+    height: auto;
+    object-fit: contain;
 }
 
 .text-header {
@@ -26,7 +33,7 @@
 .text-header h1 {
     font-size: 1.4rem;
     color: #D0D0D0;
-
+    margin: 0;
 }
 
 .text-header span {
@@ -34,38 +41,195 @@
     font-size: 0.6rem;
 }
 
+/* Ícones e Usuário (Visíveis no PC) */
 .icons-header {
     display: flex;
     align-items: center;
-    text-align: end;
     gap: 20px;
-}
-
-.icons-header img {
-    align-items: center;
-    width: 68px;
-    height: 58px;
-    cursor: pointer;
 }
 
 .icons-header span {
     cursor: pointer;
     color: #8030E0;
+    font-size: 1.2rem;
 }
 
 .grupo-user {
     display: flex;
     align-items: center;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    border-left: 1px solid #333;
     padding-left: 15px;
+    margin-left: 10px;
 }
 
 .text-group-user h1 {
     font-size: 0.9rem;
     color: #9C9B9E;
+    margin: 0;
 }
 
 .text-group-user span {
     color: #B1B2B5;
     font-size: 0.7rem;
+}
+
+/* --- BOTÃO HAMBURGUER (CORRIGIDO PARA BRANCO) --- */
+.btn-mobile {
+    display: none; /* Escondido no PC */
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px; /* Aumenta a área de clique */
+    margin-right: 5px;
+}
+
+/* AQUI ESTÁ A COR BRANCA (#fff) */
+.hamburger {
+    display: block;
+    width: 25px;
+    border-top: 2px solid #fff; 
+}
+
+.hamburger::after, 
+.hamburger::before {
+    content: '';
+    display: block;
+    width: 25px;
+    height: 2px;
+    background: #fff; /* BRANCO */
+    margin-top: 6px;
+    transition: 0.3s;
+    position: relative;
+}
+
+/* Barra de Menu (Sub-header) no PC */
+.sub-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 10px 20px;
+    background-color: #202024;
+    border-bottom: 1px solid #333;
+}
+
+/* =========================================
+   RESPONSIVIDADE (CELULAR - Menor que 768px)
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    /* 1. MOSTRAR O BOTÃO COM PRIORIDADE ALTA */
+    .btn-mobile {
+        display: block;
+        z-index: 2000; /* Garante que fique acima de tudo e clicável */
+    }
+
+    /* 2. ESCONDER O PERFIL E ÍCONES */
+    .icons-header {
+        display: none !important;
+    }
+
+    /* 3. MENU MOBILE (AGORA PRETO E ESCONDIDO) */
+    .sub-header {
+        display: none !important; /* Começa invisível */
+        
+        position: fixed;
+        top: 40px; /* Logo abaixo do header */
+        left: 0;
+        width: 100%;
+        
+        /* CORREÇÃO DO FUNDO: PRETO */
+        background-color: #121214; 
+        
+        flex-direction: column;
+        padding: 0;
+        z-index: 9999;
+        border-bottom: 2px solid #8257e5;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.9);
+    }
+
+    /* 4. MOSTRAR QUANDO ATIVO */
+    .sub-header.active {
+        display: flex !important; /* Aparece ao clicar */
+        animation: slideDown 0.3s forwards;
+    }
+
+    /* Ajuste visual dos botões no menu vertical */
+    .box-sub-header, 
+    .box-sub-header-2 {
+        width: 100%;
+        padding: 20px;
+        /* Força fundo preto para cobrir o roxo/cinza original */
+        background-color: #121214 !important; 
+        border-bottom: 1px solid #333;
+        justify-content: flex-start;
+        border-radius: 0;
+        margin: 0;
+    }
+    
+    /* Hover no celular */
+    .box-sub-header:hover, 
+    .box-sub-header-2:hover {
+        background-color: #202024 !important;
+        transform: none;
+    }
+
+    /* ANIMAÇÃO DO ÍCONE VIRANDO X (BRANCO) */
+    .btn-mobile.active .hamburger {
+        border-top-color: transparent;
+    }
+    .btn-mobile.active .hamburger::before {
+        transform: rotate(135deg);
+        top: 0;
+    }
+    .btn-mobile.active .hamburger::after {
+        transform: rotate(-135deg);
+        top: -8px;
+    }
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 470px) {
+    
+    /* Permite que o header cresça para caber os itens empilhados */
+    .header {
+        height: auto;
+        padding: 15px 0;
+        
+    }
+
+    /* Transforma a linha em coluna */
+    .header-left {
+        flex-direction: column-reverse; /* <--- O que você pediu */
+        align-items: center;    /* Centraliza tudo */
+        justify-content: center;
+        width: 100%;
+        gap: 10px;              /* Espaço entre os itens */
+    }
+
+    /* Centraliza o texto */
+    .text-header {
+        text-align: center;
+        align-items: center;
+    }
+
+    /* Ajuste fino para o título não ficar muito grande */
+    .text-header h1 {
+        font-size: 1.1rem !important;
+    }
+
+ /*    (Opcional) Se você quiser que o botão de menu continue 
+       no canto esquerdo, descomente as linhas abaixo. 
+       Se deixar comentado, ele vai ficar no topo centralizado.
+     */
+    /* .btn-mobile {
+        position: absolute;
+        left: 20px;
+        top: 20px;
+    } 
+    */
 }

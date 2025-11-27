@@ -5,46 +5,49 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ordens de Serviços</title>
   <link rel="stylesheet" href="src/styles/style.css" />
-  <link rel="stylesheet" href="src/styles/equipamentos.css" />
   <script type="module" src="src/JS/main.js" defer></script>
 </head>
 
 <body>
   <main>
     <header>
-      <div class="header">
-        <div class="header-left">
-          <img src="src/assets/image/icon-novo.png" />
-          <div class="text-header">
-            <h1>Serviços de Ordens</h1>
-            <span>Plataforma de Ordens de Manutenção</span>
-          </div>
-        </div>
+  <div class="header">
+    <div class="header-left">
+      
+      <button id="btn-mobile" class="btn-mobile">
+        <span class="hamburger"></span>
+      </button>
 
-        <div class="icons-header">
-          <span>🔔︎</span>
-          <span>⚙</span>
+      <img src="src/assets/image/icon-novo.png" alt="Logo" />
+      
+      <div class="text-header">
+        <h1>Serviços de Ordens</h1>
+        <span>Plataforma de Ordens de Manutenção</span>
+      </div>
+    </div>
 
-          <div class="grupo-user">
-            <div class="text-group-user">
-              <h1>User</h1>
-              <span>Manutec. Industrial </span>
-            </div>
-          </div>
+    <div class="icons-header">
+      <span>🔔︎</span>
+      <span>⚙</span>
+
+      <div class="grupo-user">
+        <div class="text-group-user">
+          <h1>User</h1>
+          <span>Manutec. Industrial</span>
         </div>
       </div>
-    </header>
+    </div>
+  </div>
+</header>
 
-    <section>
-      <div class="sub-header">
-        <div class="box-sub-header"> <span>☰</span>
-          <h1>Dashboard</h1>
-        </div>
-        <div class="box-sub-header-2"> <span>🔧</span>
-          <h1>Equipamentos</h1>
-        </div>
-      </div>
-    </section>
+<section class="sub-header" id="nav-menu">
+  <div class="box-sub-header"> <span>☰</span>
+    <h1>Dashboard</h1>
+  </div>
+  <div class="box-sub-header-2"> <span>🔧</span>
+    <h1>Equipamentos</h1>
+  </div>
+</section>
 
     <div id="view-dashboard">
 
@@ -116,6 +119,7 @@
         </div>
       </section>
     </div>
+
     <!-- === ABA EQUIPAMENTOS -->
     <section id="view-equipamentos" style="display: none;">
       <div class="equipamentos-container">
@@ -157,7 +161,7 @@
 
       </div>
     </section>
-    <!-- === FIM ABA EQUIPAMENTOS -->
+
     <!-- ===CARD CRIAR OS -->
     <div class="os-overlay" id="overlay-card"></div>
 
@@ -190,9 +194,8 @@
 
       <button class="criar-os-btn" type="submit">Criar OS</button>
     </form>
-    <!-- === FIM CARD CRIAR OS -->
 
-    <!-- ===CARD CRIAR EQUIPA -->
+    <!-- === CARD EQUIPAMENTOS -->
     <div class="os-overlay" id="overlay-equip"></div>
 
     <form class="create-os-card" id="form-equip" autocomplete="off">
@@ -208,7 +211,6 @@
 
       <button class="criar-os-btn" type="submit">Salvar Máquina</button>
     </form>
-    <!-- ===FIM CARD CRIAR EQUIPA -->
 
   </main>
 

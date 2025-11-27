@@ -102,6 +102,7 @@ function desenharEquipamentos() {
     container.innerHTML = "";
 
     listaEquipamentos.forEach((equip) => {
+        // --- Lógica de Status (Mantida) ---
         const osAberta = listaOS.find(
             (os) => os.maquina && equip.nome && 
             os.maquina.toLowerCase() === equip.nome.toLowerCase() &&
@@ -118,8 +119,12 @@ function desenharEquipamentos() {
             icon = "🚨";
         }
 
+        // --- Criação do Card ---
         const card = document.createElement("div");
         card.className = `equip-card ${statusClass}`;
+        
+        // --- ALTERAÇÃO AQUI: Layout Vertical ---
+        // Mudei o flex-direction para 'column' e aumentei o gap
         card.innerHTML = `
             <div class="equip-icon">${icon}</div>
             <div class="equip-info">
@@ -127,12 +132,42 @@ function desenharEquipamentos() {
                 <span class="equip-setor">Setor: ${equip.setor || '-'}</span>
                 <div class="equip-status-badge">${statusTexto}</div>
             </div>
-            <button class="btn-ver-equip" onclick="window.filtrarHistorico('${equip.nome}')">Ver Histórico</button>
-            <button class="btn-delete-neon">Deletar</button> 
+            
+            <div class="card-actions" style="display: flex; flex-direction: column; gap: 10px; margin-top: 15px; width: 100%;">
+                <button class="btn-ver-equip" style="width: 100%;" onclick="window.filtrarHistorico('${equip.nome}')">Ver Histórico</button>
+                <button class="btn-delete-neon" style="width: 100%;">Deletar</button>
+            </div>
         `;
+
+        // --- Lógica do Botão Deletar (Mantida) ---
+        const btnDelete = card.querySelector(".btn-delete-neon");
+        
+        btnDelete.addEventListener("click", async () => {
+            const idParaDeletar = equip._id || equip.id;
+
+            if (!idParaDeletar) {
+                alert("Erro: ID do equipamento não encontrado.");
+                return;
+            }
+
+            const confirmacao = confirm(`Tem certeza que deseja EXCLUIR a máquina "${equip.nome}"?`);
+            
+            if (confirmacao) {
+                try {
+                    await api.DeletarCaixa(idParaDeletar);
+                    await carregarDados();
+                    alert("Equipamento deletado com sucesso!");
+                } catch (error) {
+                    console.error("Erro ao deletar:", error);
+                    alert("Não foi possível deletar. Verifique o console.");
+                }
+            }
+        });
+
         container.appendChild(card);
     });
 
+    // --- Card de Adicionar ---
     const btnAdd = document.createElement("div");
     btnAdd.className = "equip-card add-new";
     btnAdd.innerHTML = `<div class="add-icon">+</div><h3>Adicionar Máquina</h3>`;
@@ -404,4 +439,34 @@ if(searchInput) {
         );
         desenharTabela(filtradas);
     });
+    
 }
+
+// --- LÓGICA DO MENU HAMBURGUER ---
+const btnMobile = document.getElementById('btn-mobile');
+const navMenu = document.getElementById('nav-menu');
+
+function toggleMenu(event) {
+    if (event && event.type === 'touchstart') event.preventDefault();
+    
+    // Adiciona ou remove a classe "active"
+    // Isso faz o CSS mudar de display: none para display: flex
+    navMenu.classList.toggle('active');
+    btnMobile.classList.toggle('active');
+}
+
+if(btnMobile) {
+    btnMobile.addEventListener('click', toggleMenu);
+    btnMobile.addEventListener('touchstart', toggleMenu);
+}
+
+// Fechar menu ao clicar nas opções
+const menuLinks = document.querySelectorAll('.box-sub-header, .box-sub-header-2');
+menuLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        if(navMenu.classList.contains('active')) {
+            navMenu.classList.remove('active');
+            btnMobile.classList.remove('active');
+        }
+    });
+});

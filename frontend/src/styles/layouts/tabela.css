@@ -27,6 +27,7 @@
     display: flex;
     align-items: center;
     gap: 15px;
+    flex-wrap: wrap; /* Permite quebrar linha no mobile */
 }
 
 .search-box {
@@ -94,21 +95,21 @@
     transform: scale(1.03);
 }
 
-.os-search .btn-filtros-os {
-    background: transparent;
-    color: #B387FF;
-    border: 1px solid #B387FF;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    font-weight: 600;
-}
+/* -------------------------------------------------- */
+/* TABELA COM ROLAGEM HORIZONTAL (RESPONSIVA)         */
+/* -------------------------------------------------- */
 
-.os-search .btn-filtros-os:hover {
-    background-color: rgba(179, 135, 255, 0.1);
-    transform: scale(1.03);
+/* Container da tabela para permitir scroll */
+.os-table {
+    width: 100%;
+    overflow-x: auto; /* ATIVA A ROLAGEM LATERAL */
+    -webkit-overflow-scrolling: touch; /* Rolagem suave no iOS */
+    padding-bottom: 10px; /* Espaço para a barra de rolagem */
 }
 
 .os-table table {
     width: 100%;
+    min-width: 800px; /* FORÇA A TABELA A SER LARGA NO MOBILE */
     border-collapse: separate;
     border-spacing: 0 10px;
     font-size: 14px;
@@ -121,6 +122,7 @@
     font-weight: 600;
     color: #44157A;
     border-bottom: 2px solid #CBB3F2;
+    white-space: nowrap; /* Evita que o cabeçalho quebre linha */
 }
 
 .os-table tbody tr {
@@ -132,6 +134,7 @@
 .os-table tbody td {
     padding: 14px 16px;
     color: #464349;
+    white-space: nowrap; /* Mantém o texto alinhado */
 }
 
 .os-table tbody tr td:first-child {
@@ -149,61 +152,23 @@
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.status-aberto {
-    color: #D82929 !important;
-    font-weight: 600;
-}
+/* CORES DE STATUS */
+.status-aberto { color: #D82929 !important; font-weight: 600; }
+.status-andamento { color: #C27B0A !important; font-weight: 600; }
+.status-concluida { color: #2E7D32 !important; font-weight: 600; }
 
-.status-andamento {
-    color: #C27B0A !important;
-    font-weight: 600;
-}
-
-.status-concluida {
-    color: #2E7D32 !important;
-    font-weight: 600;
-}
-
-.prioridade-alta {
-    color: #D82929;
-    font-weight: 600;
-}
-
-.prioridade-media {
-    color: #C27B0A;
-    font-weight: 600;
-}
+.prioridade-alta { color: #D82929; font-weight: 600; }
+.prioridade-media { color: #C27B0A; font-weight: 600; }
 
 .os-table tbody td:last-child {
     color: #2F80ED;
     font-weight: 600;
-    /* cursor: pointer; */
     background: none;
     border: none;
 }
 
-.os-table tbody td:last-child:hover {
-    text-decoration: none;
-}
-
 /* -------------------------------------------------- */
-/* REMOÇÃO COMPLETA DO ESTILO ANTIGO DE DETALHES      */
-/* -------------------------------------------------- */
-
-.linha-detalhes {
-    background: transparent !important;
-}
-
-.celula-detalhes {
-    padding: 0 !important;
-}
-
-.box-detalhes {
-    display: none !important;
-}
-
-/* -------------------------------------------------- */
-/* MODELO A — CARD DE DETALHES MODERNO                */
+/* CARD DE DETALHES (EXPANSÍVEL)                      */
 /* -------------------------------------------------- */
 
 .detalhes-card {
@@ -213,8 +178,10 @@
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     animation: fadeIn 0.25s ease-in-out;
     margin-top: 5px;
+    /* Ajuste para não bugar dentro da tabela com scroll */
+    position: sticky; 
+    left: 0;
 }
-
 
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-6px); }
@@ -229,15 +196,8 @@
     padding-bottom: 8px;
 }
 
-.detalhes-header h3 {
-    margin: 0;
-    color: #4A2D7F;
-}
-
-.detalhes-header span {
-    font-weight: bold;
-    color: #6d5a9c;
-}
+.detalhes-header h3 { margin: 0; color: #4A2D7F; }
+.detalhes-header span { font-weight: bold; color: #6d5a9c; }
 
 .detalhes-grid {
     display: grid;
@@ -246,29 +206,15 @@
     margin-bottom: 20px;
 }
 
-.detalhes-grid h4 {
-    margin: 0;
-    font-size: 0.9rem;
-    color: #5A477A;
-}
+.detalhes-grid h4 { margin: 0; font-size: 0.9rem; color: #5A477A; }
+.detalhes-grid p { margin: 3px 0 0; font-size: 0.9rem; }
 
-.detalhes-grid p {
-    margin: 3px 0 0;
-    font-size: 0.9rem;
-    text-decoration: none;
-}
-
-.detalhes-descricao h4 {
-    color: #5A477A;
-    margin-bottom: 5px;
-}
-
+.detalhes-descricao h4 { color: #5A477A; margin-bottom: 5px; }
 .detalhes-descricao p {
     background: #E8E0F7;
     padding: 12px;
     border-radius: 8px;
-    text-decoration: none;
-
+    white-space: normal; /* Descrição pode quebrar linha */
 }
 
 .detalhes-acoes {
@@ -285,36 +231,9 @@
     font-weight: bold;
 }
 
-.detalhes-acoes button:hover {
-    transform: scale(1.02);
-    font-weight: 600;
-}
+.btn-editar { background: #3B82F6; color: #fff; }
+.btn-deletar { background: #DC2626; color: white; }
 
-.btn-editar {
-    background: #3B82F6;
-    color: #fff;
-}
-
-.btn-deletar {
-    background: #DC2626;
-    color: white;
-}
-
-btn-ver,
-.btn-ver:focus,
-.btn-ver:focus-visible,
-.btn-ver:active {
-  outline: none !important;
-  box-shadow: none !important;
-  border: none !important;
-}
-
-/* correção para Firefox (remove espaço interno do foco) */
-.btn-ver::-moz-focus-inner {
-  border: 0;
-}
-
-/* tira highlight em mobile/touch */
 .btn-ver {
   -webkit-tap-highlight-color: transparent;
   border: none;
@@ -322,13 +241,55 @@ btn-ver,
   border-radius: 10px;
   background-color: #7C6BD6;
   color: #fff;
+  cursor: pointer;
 }
 
 .btn-ver:hover {
     transform: scale(1.02);
     background-color: #7262c2;
 }
-/* caso algo ainda esteja gerando sombra no elemento focado */
-.btn-ver:focus { outline-offset: 0 !important; }
 
+/* ==================================================
+   RESPONSIVIDADE EXTRA (MEDIA QUERIES)
+   ================================================== */
 
+@media (max-width: 768px) {
+    
+    /* Ajusta a barra de busca para celular */
+    .os-search {
+        flex-direction: column; /* Input em cima, botão embaixo */
+        align-items: stretch; /* Estica para ocupar a largura toda */
+        gap: 10px;
+    }
+
+    .search-box {
+        max-width: 100%; /* Ocupa a tela toda */
+    }
+
+    .btn-nova-os {
+        width: 100%; /* Botão grande fácil de clicar */
+        padding: 12px;
+    }
+
+    /* Ajuste do Card de Detalhes no Mobile */
+    .detalhes-grid {
+        grid-template-columns: 1fr 1fr; /* 2 colunas em vez de 4 */
+        gap: 10px;
+    }
+    
+    .detalhes-card {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Ajuste para telas muito pequenas */
+    .detalhes-grid {
+        grid-template-columns: 1fr; /* 1 coluna (tudo um embaixo do outro) */
+    }
+
+    .detalhes-header {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
