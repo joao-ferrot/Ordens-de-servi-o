@@ -1,0 +1,9 @@
+[build]
+  # Onde o Netlify deve começar a procurar (Base Directory)
+  base = "frontend"
+  
+  # O comando para construir o projeto (Vazio, pois é HTML puro)
+  command = ""
+
+  # Onde os arquivos prontos estão, a partir do 'base' (Publish Directory)
+  publish = "."
