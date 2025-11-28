@@ -1,4 +1,4 @@
-const url = "http://localhost:8000";
+const url = "https://ordens-de-servi-o.onrender.com";
 
 const api = {
 
